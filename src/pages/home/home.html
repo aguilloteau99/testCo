@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic connexion
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p *ngIf="user.connect" style="color: #2fb72f;">Connecté !</p>
+  <ion-item>
+    <ion-label>Identifiant:</ion-label>
+    <ion-input type="email" [(ngModel)]="id"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Mot de passe:</ion-label>
+    <ion-input type="password" [(ngModel)]="pwd"></ion-input>
+  </ion-item>
+
+  <button *ngIf="!user.connect" ion-button (click)="connectAPI()">Connexion</button>
+  <button *ngIf="user.connect" ion-button (click)="deconnectAPI()">Déconnexion</button>
+  <div>
+    <button *ngIf="user.connect" ion-button (click)="goToList()">Afficher les listes</button>
+  </div>
+</ion-content>

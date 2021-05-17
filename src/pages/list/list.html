@@ -1,0 +1,57 @@
+<!--
+  Generated template for the ListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-list>
+      <ion-list-header style="font-size: 25px;">Produits: </ion-list-header>
+      <label for="familyChoose">Famille:</label>
+      <select ion-select id="familyChoose" [(ngModel)]="familyChoose">
+        <option ion-select-option *ngFor="let f of families" [value]="f.productFamilyId">{{ f.productFamilyDesignation }}</option>
+      </select>
+      <label for="essenceChoose">Essence:</label>
+      <select ion-select id="essenceChoose" [(ngModel)]="essenceChoose">
+        <option ion-select-option *ngFor="let e of essences" [value]="e.productEssenceId">{{ e.productEssenceDesignation }}</option>
+      </select>
+      <label for="treatmentChoose">Traitement:</label>
+      <select ion-select id="treatmentChoose" [(ngModel)]="treatmentChoose">
+        <option ion-select-option *ngFor="let t of treatments" [value]="t.productTreatmentId">{{ t.productTreatmentDesignation }}</option>
+      </select>
+      <label for="varietyChoose">Variétés:</label>
+      <select ion-select id="varietyChoose" [(ngModel)]="varietyChoose">
+        <option ion-select-option *ngFor="let v of varieties" [value]="v.productVarietyId">{{ v.productVarietyDesignation }}</option>
+      </select>
+      <button ion-button (click)="getProductWithFilter()">Trier</button>
+      <button ion-button (click)="resetFilter()">Réinitialiser</button>
+      <p>Nombre de produit(s): {{ maxProduct }}</p>
+      <product *ngFor="let p of products" [productId]="p.productId" [productDesignation]="p.productDesignation"></product>
+    </ion-list>
+    <p>Numéro de page: {{ 1 + page }} / {{ 1 + maxPage }}</p>
+    <button ion-button (click)="productPrev()">Précédent</button>
+    <button ion-button (click)="productNext()">Suivant</button>
+  </ion-item>
+
+  <ion-item>
+    <ion-list-header style="font-size: 25px;">Produits favoris: </ion-list-header>
+    <product *ngFor="let p of productsFavorite" [productId]="p.productId" [productDesignation]="p.productDesignation"></product>
+  </ion-item>
+
+  <ion-item>
+    <ion-list>
+      <ion-list-header style="font-size: 25px;">Utilisateurs: </ion-list-header>
+      <ion-item *ngFor="let u of users">
+        {{ u.id }} - {{ u.name}}
+      </ion-item>
+    </ion-list>
+  </ion-item>
+
+</ion-content>

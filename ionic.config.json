@@ -1,0 +1,7 @@
+{
+  "name": "testCo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "ionic-angular"
+}

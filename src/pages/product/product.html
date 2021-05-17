@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Produit: {{ product.productId }} - {{ product.productDesignation }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>productId: {{ product.productId }}</ion-item>
+    <ion-item>productReference: {{ product.productReference }}</ion-item>
+    <ion-item>productDesignation: {{ product.productDesignation }}</ion-item>
+    <ion-item>productFamilyId: {{ product.productFamilyId }}</ion-item>
+    <ion-item>productFamilyDesignation: {{ product.productFamilyDesignation }}</ion-item>
+    <ion-item>productEssenceId: {{ product.productEssenceId }}</ion-item>
+    <ion-item>productEssenceDesignation: {{ product.productEssenceDesignation }}</ion-item>
+    <ion-item>productTreatmentId: {{ product.productTreatmentId }}</ion-item>
+    <ion-item>productTreatmentDesignation: {{ product.productTreatmentDesignation }}</ion-item>
+    <ion-item>productVarietyId: {{ product.productVarietyId }}</ion-item>
+    <ion-item>productVarietyDesignation: {{ product.productVarietyDesignation }}</ion-item>
+  </ion-list>
+
+  <button ion-button (click)="postProductFavorite(product.productId)">Ajouter aux favoris</button>
+  <button style="float: right;" ion-button (click)="deleteProductFavorite(product.productId)">Enlever des favoris</button>
+</ion-content>
